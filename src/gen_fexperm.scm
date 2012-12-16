@@ -2,6 +2,9 @@
 ;; gen_fexperm.scm -- A small Scheme-program to create a purely
 ;; combinational Verilog-module for converting a factorial expansion of n to
 ;; a corresponding permutation, in the order given by http://oeis.org/A060118
+;; Coded by karttu, the first version at April 1 2010.
+;; Copyright (C) 2010-2012 Antti Karttunen, subject to the terms of the GPL v2.
+;;
 ;; We can use either binary-encoded or one-hot encoded representation
 ;; of the digits of factorial expansion. See also: http://oeis.org/A007623
 ;; 
