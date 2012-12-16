@@ -1,0 +1,80 @@
+
+lifemidi/README -- The latest revision Dec 16 2012 Evening by karttu.
+
+(No functional changes to the version presented at WÄRK:fest 20. - 21.10.2012,
+just some minor clean-up of comments and indentation of code.)
+
+Unless otherwise noted,
+all Verilog code is Copyright (C) 2005-2012 by Antti Karttunen,
+and is placed under GNU General Public License version 2.
+See file COPYING in src directory.
+(The module syncinp.v is so simple and a standard example from text books
+that it is probably Public Domain.)
+
+This project contains a Verilog-source code and the associated UCF-file
+to be uploaded into Digilent's Spartan-3 Starter Kit Board with Xilinx
+Spartan3 XC3S200-FT256 FPGA-chip. See:
+http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,400,799&Prod=S3BOARD
+and
+http://www.digilentinc.com/Data/Products/S3BOARD/S3BOARD_RM.pdf
+
+Additional Verilog-modules needed:
+
+ raminfr.v, timescale.v, uart_defines.v, uart_tfifo.v and uart_transmitter.v
+ from http://opencores.org/project,uart16550
+ located under this subdirectory:
+ http://opencores.org/websvn,listing?repname=uart16550&path=%2Fuart16550%2Ftrunk%2Frtl%2Fverilog%2F#path_uart16550_trunk_rtl_verilog_
+
+Additional, extra hardware needed:
+
+ - A 8x8 LED and reed-relay (reed-switch) matrix from an old Mefisto or similar
+   chess computer. Of course you could solder it up by yourself as well.
+
+ - Self-made optoisolator-board which interfaces 3,3 Volt FPGA-side to 5V side
+   controlling the LED/reed-relay matrix and some other things.
+
+ - A pulsing rotary-dialer from an old Ericsson (or similar) telephone.
+   (This is for changing the factorial expansion/permutation which the
+    device is currently playing and iterating slowly one step by time forward).
+
+ - A 16 x 7-segment LED-display from an old Digitel-2000 telephone, from a
+   model which had such a display. See
+   http://www.vads.ac.uk/x-large.php?uid=53658&sos=0 for an example.
+   Of course you could build this from any 7-segment led-displays
+   you happen to have. The decimal points are also used.
+
+ - A small "side-wing" thru which the above two elements are connected to
+   Spartan-3 Board thru its User B1 Expansion Connector. This side-wing
+   contains also the eight series resistors (etuvastukset) for each
+   of the segments, as well as two pull-up resistors for the pulsing
+   and "in the rest" signals coming from the rotary dialer.
+
+ - Of course you need also some MIDI sound source box to hear any sounds.
+
+ - Optionally, an external source for the beat.
+   See e.g. https://github.com/karttu/ArduDinSync/blob/master/ArduDinSync.pde
+
+You can see some old photos of the device at:
+
+http://ndirty.cute.fi/~karttu/FPGA/esimes/life/HARDWARE_PHOTOS/pelikone.html
+or
+http://web.archive.org/web/20100603062827/http://ndirty.cute.fi/~karttu/FPGA/esimes/life/HARDWARE_PHOTOS/pelikone.html
+
+However, since then I have added an additional optoisolator to the
+optoisolator board for the incoming DIN-sync signal, and also added a
+transistor for the outgoing MIDI-signal. The transistor's emitter is
+connected to the grounds of both 3,3V and 5V side, so they are not
+anymore galvanically separated as before. BTW, currently the setup is
+extremely sensitive to any switching on of the electrical appliances
+connected to the same extension cord.
+
+A photo how the apparatus looks now in 2012 Q4:
+http://www.flickr.com/photos/ermuggo/8118742971/sizes/k/in/pool-2089172@N20/
+
+See also: http://www.youtube.com/watch?v=JED4cH_cg-o
+(the sound comes mostly from other devices in that set-up).
+
+
+You can contact me at: <My-firstname>.<My-Surname>@gmail.com,
+
+  Antti Karttunen, Helsinki, December 16 2012.
